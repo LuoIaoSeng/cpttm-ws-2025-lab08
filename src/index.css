@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    padding: 1rem 0;
 }
 
 #app {
@@ -25,19 +26,31 @@ body {
     padding: 1rem 1.6rem;
     font-size: large;
     border: 2px solid grey;
+    border-left: 0;
     border-bottom: 0;
     outline: 0;
-    border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+.tab:first-child{
+    border-left: 2px solid grey;
+    border-radius: 0.5rem 0 0 0;
+}
+
+.tab:last-child{
+    border-radius: 0 0.5rem 0 0;
 }
 
 #content {
    display: flex;
    flex-direction: column;
    gap: 1rem;
+   padding: 1rem 0;
 }
 
 li {
     list-style: none;
+    box-shadow: 0 0 4px 1px grey;
+    padding: 1rem;
 }
 
 li>div>div:nth-child(1) {
@@ -45,6 +58,6 @@ li>div>div:nth-child(1) {
     font-weight: bold;
 }
 
-li>div>div:nth-child(2) {
-    font-size: 1rem;
+li>div>div>a {
+    color: black;
 }

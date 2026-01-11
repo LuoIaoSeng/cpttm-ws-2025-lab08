@@ -53,7 +53,9 @@ export class App {
         this.postButton.addEventListener('click', async () => {
 
             this.content.innerHTML = 'Loading'
-            this.states.posts = await fetchPosts()
+            if (this.states.posts === null) {
+                this.states.posts = await fetchPosts()
+            }
             this.content.innerHTML = ''
 
             this.states.posts?.forEach((post: PostType) => {
@@ -61,14 +63,18 @@ export class App {
                 const li = document.createElement('li')
                 const wrapper = document.createElement('div')
                 const titleWrapper = document.createElement('div')
-                const contentWrapper = document.createElement('div')
+                const linkWrapper = document.createElement('a')
+                // const contentWrapper = document.createElement('div')
 
+                titleWrapper.appendChild(linkWrapper)
                 wrapper.appendChild(titleWrapper)
-                wrapper.appendChild(contentWrapper)
+                // wrapper.appendChild(contentWrapper)
                 li.appendChild(wrapper)
 
-                titleWrapper.innerText = post.title
-                contentWrapper.innerText = post.body
+                linkWrapper.href = `/posts/?id=${post.id}`
+                linkWrapper.innerText = post.title
+
+                // contentWrapper.innerText = post.body
 
                 this.content.appendChild(li)
 
@@ -77,7 +83,9 @@ export class App {
 
         this.albumsButton.addEventListener('click', async () => {
             this.content.innerHTML = 'Loading'
-            this.states.albums = await fetchAlbumns()
+            if (this.states.albums === null) {
+                this.states.albums = await fetchAlbumns()
+            }
 
             this.content.innerHTML = ''
 
@@ -86,13 +94,17 @@ export class App {
                 const li = document.createElement('li')
                 const wrapper = document.createElement('div')
                 const titleWrapper = document.createElement('div')
+                const linkWrapper = document.createElement('a')
                 // const contentWrapper = document.createElement('div')
 
+                titleWrapper.appendChild(linkWrapper)
                 wrapper.appendChild(titleWrapper)
                 // wrapper.appendChild(contentWrapper)
                 li.appendChild(wrapper)
 
-                titleWrapper.innerText = album.title
+                linkWrapper.href = `/albums/?id=${album.id}`
+                linkWrapper.innerText = album.title
+
                 // contentWrapper.innerText = post.body
 
                 this.content.appendChild(li)
@@ -103,22 +115,28 @@ export class App {
         this.myPostButton.addEventListener('click', async () => {
 
             this.content.innerHTML = 'Loading'
-            this.states.posts = await fetchMyPosts(1)
+            if (this.states.myPosts === null) {
+                this.states.myPosts = await fetchMyPosts(1)
+            }
             this.content.innerHTML = ''
 
-            this.states.posts?.forEach((post: PostType) => {
+            this.states.myPosts?.forEach((post: PostType) => {
 
                 const li = document.createElement('li')
                 const wrapper = document.createElement('div')
                 const titleWrapper = document.createElement('div')
-                const contentWrapper = document.createElement('div')
+                const linkWrapper = document.createElement('a')
+                // const contentWrapper = document.createElement('div')
 
+                titleWrapper.appendChild(linkWrapper)
                 wrapper.appendChild(titleWrapper)
-                wrapper.appendChild(contentWrapper)
+                // wrapper.appendChild(contentWrapper)
                 li.appendChild(wrapper)
 
-                titleWrapper.innerText = post.title
-                contentWrapper.innerText = post.body
+                linkWrapper.href = `/posts/?id=${post.id}`
+                linkWrapper.innerText = post.title
+
+                // contentWrapper.innerText = post.body
 
                 this.content.appendChild(li)
 

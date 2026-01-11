@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        #photos>div {
+            width: 100px;
+            height: 100px;
+            outline: 1px solid grey;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/">Back</a>
+    <div>
+        <div id="title"></div>
+        <div id="photos"></div>
+    </div>
+    <script type="module" src="./index.ts"></script>
+</body>
+
+</html>
