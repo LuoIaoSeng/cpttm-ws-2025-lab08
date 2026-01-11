@@ -9,7 +9,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                albumns: resolve(__dirname, 'albumns/index.html'),
+                albums: resolve(__dirname, 'albums/index.html'),
                 posts: resolve(__dirname, 'posts/index.html'),
             },
         },
